@@ -8,7 +8,7 @@
 import matplotlib
 import numpy as np
 
-matplotlib.use('TkAgg')
+# matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import seaborn as sns
 

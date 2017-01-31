@@ -5,6 +5,7 @@
 @time = 2017/1/25 15:18
 @annotation = '' 
 """
+import numpy as np
 import pandas as pd
 
 subway_df = pd.DataFrame({
@@ -37,7 +38,11 @@ s1 = pd.Series([0, 1], index=list("ab"))
 s2 = pd.Series([2, 3, 4], index=list("cde"))
 s3 = pd.Series([5, 6], index=list("fg"))
 
-if False:
+if True:
     s = pd.concat([s1, s2, s3])
+    # print s
+    # print s3[1]
+    s1 = np.array([0, 1, 2])
+    s2 = np.array([2, 3, 4])
+    s = np.concatenate([s1, s2])
     print s
-    print s3[1]
