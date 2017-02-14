@@ -9,9 +9,10 @@ import pandas as pd
 
 s1 = pd.Series([1, 2, 3, 4], index=['b', 'a', 'c', 'd'])
 
-# 降序
-print s1.sort_values(ascending=False)
-print s1.sort_index()
+if False:
+    # 降序
+    print s1.sort_values(ascending=False)
+    print s1.sort_index()
 
 df = pd.DataFrame(
     [
@@ -23,6 +24,8 @@ df = pd.DataFrame(
     index=list("fuck"),
     columns=list("ABCD"),
 )
-print df
-# 根据列排序决定决定行位置
-print df.sort_values(by=["A", "B"])
+if True:
+    print df
+    # 根据列排序决定决定行位置
+    print df.sort_values(by=["A", "B"])
+    print df.sort_index()

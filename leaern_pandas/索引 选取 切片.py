@@ -49,19 +49,22 @@ if False:
 """
 if False:
     c = pd.Series([1, 2, 3, 4], index=["a", "b", "c", "d"])
-    # print c
-    # d = c.drop("d")
-    # print d
-    # a = d.append(pd.Series([5]), ignore_index=True)
-    # print a
-    # a = d.append(pd.Series([5], index=["d"]))
-    # print a
+    print c
+    d = c.drop("d")
+    print d
+    a = d.append(pd.Series([5]), ignore_index=True)
+    print a
+    a = d.append(pd.Series([5], index=["d"]))
+    print a
 
     c["a"] = 8
     print c
     print c["a"]
 
 if False:
+    """
+    增删改
+    """
     df = pd.DataFrame(
         [
             [9, 6, 2, 3],
@@ -114,14 +117,27 @@ if True:
     # 按列取
     print df
     print df[["A", "C"]]
-    print df["A"]
+    print df["A"] == df.A
+
+    print '行 index'
+    # print df[0]
+    print df[0:2]
     print df.iloc[2:]
     print df.iloc[2] == df.loc["c"]
-
-    # 区域索引
+    '''
+    df.loc[行标签,列标签]
+    df.loc['a':'b'] #选取 ab 两行数据
+    df.loc[:,'open'] #选取 open 列的数据
+    '''
+    print '区域索引'
     print df.ix["k", "A"]
     print df.ix[["f", "k"],]
     print df.ix["f":"k", "A"]
+
+    print "逻辑"
+    print df[(df.A > 3) & (df.C > 0)]
+    print df[df.A.isin([4, 8])]
+    # print df[df.loc["c"] > 3]
 """
 drop index
 """
