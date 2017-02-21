@@ -1,4 +1,3 @@
-# Created by .ignore support plugin (hsz.mobi)
 *.pyc
 *.csv
 .idea/
@@ -6,5 +5,5 @@
 *.npy
 *.npz
 
-Code/
-formulas/
+Code/*
+formulas/*
