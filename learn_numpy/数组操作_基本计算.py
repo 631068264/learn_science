@@ -50,12 +50,12 @@ if False:
     print()
     b = 2 * a
     print(b)
-    # hstack 水平合并
     print()
-    print(hstack((a, b)))
     # vstack 垂直
+    print(np.vstack((a, b)))
     print()
-    print(vstack((a, b)))
+    # hstack 水平
+    print(np.hstack((a, b)))
     # dstack
     print()
     print(dstack((a, b)))
@@ -106,13 +106,13 @@ if False:
 花式索引
 """
 a = np.array([
-    [1, 1, 1, 1],
+    [1, 2, 3, 4],
     [2, 2, 2, 2],
     [3, 3, 3, 3],
     [4, 4, 4, 4],
 ])
 
-if False:
+if True:
     # 按需取行a
     print a[[3, 2]]
     print a[[-1, -4]]
@@ -141,7 +141,7 @@ if False:
 """
 a = np.array([1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 6])
 b = np.array([1, 2, 3, 4])
-if True:
+if False:
     print np.unique(a)
     # 交
     print np.intersect1d(a, b)

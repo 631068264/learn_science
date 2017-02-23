@@ -36,7 +36,7 @@ if False:
     ts = pd.Series(np.arange(6), index=dates)
     print ts
 
-if False:
+if True:
     """
     降采样 考虑区间开闭 边界
     """
@@ -45,15 +45,16 @@ if False:
     # print ts
     # print ts.resample("d")
 
-    ts = pd.Series(np.arange(90), index=pd.date_range("2017-1-1", periods=90))
-    # 每月平均
-    print ts.resample("M", kind="period").mean()
+    # ts = pd.Series(np.arange(90), index=pd.date_range("2017-1-1", periods=90))
+    # # 每月平均
+    # print ts.resample("M", kind="period").mean()
 
     ts = pd.Series(np.arange(12), index=pd.date_range("2017-1-1", periods=12, freq="T"))
     # 每5min sum
+    print ts
     print ts.resample("5T").sum()
     print ts.resample("5T").ohlc()
-if True:
+if False:
     """
     升采样 采样频率提高
     """
@@ -62,7 +63,6 @@ if True:
                          columns=list("ABCD"))
     frame2 = frame.resample("D").ffill()
     print frame2["A"]
-
 
     frame1 = frame.resample("D").asfreq()
     print frame1

@@ -96,8 +96,12 @@ if False:
     """
     s1 = np.array([1, 2, 3, 4])
     print s1[1:3]
+    print s1[-1]
+    print
     s1 = pd.Series([1, 2, 3, 4], index=['a', 'b', 'c', 'd'])
     print s1[1:3]
+    print s1[-1]
+    print
     """
     闭区间
     """
@@ -123,6 +127,7 @@ if True:
     # print df[0]
     print df[0:2]
     print df.iloc[2:]
+    print df.iloc[-1]
     print df.iloc[2] == df.loc["c"]
     '''
     df.loc[行标签,列标签]
