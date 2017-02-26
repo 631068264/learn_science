@@ -118,6 +118,9 @@ if True:
         index=['f', 'u', 'c', 'k', ],
         columns=['A', 'B', 'C', 'D', ]
     )
+    # df 转ndarray
+    values = df.values
+    print values
     # 按列取
     print df
     print df[["A", "C"]]
