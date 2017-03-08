@@ -4,6 +4,6 @@
 .env/
 *.npy
 *.npz
-
+collective_intelligence/*
 Code/*
 formulas/*
