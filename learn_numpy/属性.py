@@ -5,7 +5,7 @@
 @time = 2017/1/21 11:19
 @annotation = '' 
 """
-from numpy.ma import arange, array
+import numpy as np
 
 """
 ndarray.ndim：给出数组的维数，或数组轴的个数,等于秩.
@@ -24,28 +24,50 @@ ndarray.itemsize：给出数组中的元素在内存中所占的字节数
 ndarray.data：包含实际数组元素的缓冲区，由于一般通过数组的索引获取元素，所以通常不需要使用这个属性。
 """
 
+n = 3
 
-def numpysum(n):
-    a = arange(n) ** 2
-    b = arange(n) ** 3
+if False:
+    a = np.arange(n) ** 2
+    b = np.arange(n) ** 3
     c = a + b
     print(c)
 
 
-def n1(n):
+def rolling_window(a, window):
+    print a.shape, a.strides
+    shape = a.shape[:-1] + (a.shape[-1] - window + 1, window)
+    strides = a.strides + (a.strides[-1],)
+    print shape, strides
+    return np.lib.stride_tricks.as_strided(a, shape=shape, strides=strides)
+
+
+if True:
     # 数据类型一样
-    d = arange(n)
+    d = np.arange(n)
+    d = np.array([np.arange(n), np.arange(n), np.arange(n), np.arange(n), np.arange(n), np.arange(n), ])
+    # d = np.array(
+    #     [[np.arange(n), np.arange(n)],
+    #      [np.arange(n), np.arange(n)]]
+    # )
     print(d)
+    # 维度
     print(d.ndim)
     # 数据类型
     print(d.dtype)
-    # 数据个数
+    # 不同维度大小
     print(d.shape)
+    # 数据个数
     print(d.size)
+    # strides指每个轴的下标增加1时数据存储区中的指针所增加的字节数
+    print(d.strides)
+    print (np.lib.stride_tricks.as_strided(d, strides=(8, 8)))
+    print(rolling_window(d, 2))
 
 
 def n2(n):
-    d = array([arange(n), arange(n)])
+    d = np.array([
+        np.arange(n),
+        np.arange(n)])
     print(d)
     print(d.ndim)
     print(d.dtype)
@@ -54,7 +76,10 @@ def n2(n):
 
 
 def n3(n):
-    d = array([arange(n), arange(n), arange(n)])
+    d = np.array([
+        np.arange(n),
+        np.arange(n),
+        np.arange(n)])
     print(d)
     print(d.ndim)
     print(d.dtype)
@@ -62,11 +87,8 @@ def n3(n):
     print(d.size)
     print(d[1, 1])
 
-
 # n1(3)
 # print()
 # n2(3)
 # print()
 # n3(3)
-a = array([1, 2, 3, 4, 5, 6])
-print a[a > 2]
