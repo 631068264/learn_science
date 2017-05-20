@@ -5,6 +5,10 @@
 @time = 2017/1/21 16:16
 @annotation = '' 
 """
+import datetime
+from decimal import Decimal
+
+import pandas as pd
 
 """
 数据类型转换
@@ -57,3 +61,41 @@ if False:
     print(t)
     itemz = np.array([('Meaning of life DVD', 42.9954, 3.14), ('Butter', 13, 2.72)], dtype=t)
     print(itemz[0])
+
+rows = [{'date': datetime.datetime(2017, 3, 21, 13, 27, 21), 'tid': 648605515L, 'price': Decimal('1080.04000000'),
+         'type': 1, 'amount': Decimal('10.00000000')},
+        {'date': datetime.datetime(2017, 3, 21, 13, 27, 22), 'tid': 648605549L, 'price': Decimal('1081.55000000'),
+         'type': 1, 'amount': Decimal('16.00000000')},
+        {'date': datetime.datetime(2017, 3, 21, 13, 27, 23), 'tid': 648605547L, 'price': Decimal('1081.33000000'),
+         'type': 1, 'amount': Decimal('20.00000000')},
+        {'date': datetime.datetime(2017, 3, 21, 13, 27, 24), 'tid': 648605545L, 'price': Decimal('1081.30000000'),
+         'type': 1, 'amount': Decimal('16.00000000')},
+        {'date': datetime.datetime(2017, 3, 21, 13, 27, 25), 'tid': 648605543L, 'price': Decimal('1081.29000000'),
+         'type': 1, 'amount': Decimal('20.00000000')},
+        {'date': datetime.datetime(2017, 3, 22, 13, 27, 20), 'tid': 648605541L, 'price': Decimal('1080.46000000'),
+         'type': 1, 'amount': Decimal('26.00000000')},
+        {'date': datetime.datetime(2017, 3, 22, 13, 27, 20), 'tid': 648605517L, 'price': Decimal('1080.04000000'),
+         'type': 1, 'amount': Decimal('8.00000000')},
+        {'date': datetime.datetime(2017, 3, 23, 13, 27, 22), 'tid': 648605601L, 'price': Decimal('1079.69000000'),
+         'type': -1, 'amount': Decimal('70.00000000')},
+        {'date': datetime.datetime(2017, 3, 24, 13, 27, 25), 'tid': 648605686L, 'price': Decimal('1079.72000000'),
+         'type': -1, 'amount': Decimal('4.00000000')}]
+
+df = pd.DataFrame(rows)
+df[["amount", "price"]] = df[["amount", "price"]].astype(
+    "float64")
+df["date"] = df["date"].astype(pd.Timestamp)
+
+print df.dtypes
+fileds = df.columns.values
+result = np.empty(shape=(len(df)), dtype=np.dtype([(field, df[field].dtype) for field in fileds]))
+
+for field in fileds:
+    result[field] = df[field][:len(df)]
+
+# print result
+# print type(result)
+# print result["date"]
+# print type(result["date"])
+pos = result["date"].searchsorted(pd.Timestamp(datetime.datetime(2017, 3, 22, 13,27,7)))
+print pos

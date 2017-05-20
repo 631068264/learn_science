@@ -112,6 +112,11 @@ if False:
 if True:
     """
     选取
+
+    df[]列
+行
+    loc索引
+    iloc下标
     """
     df = pd.DataFrame(
         np.arange(16).reshape(4, 4),
@@ -121,6 +126,7 @@ if True:
     # df 转ndarray
     values = df.values
     print values
+    print type(values)
     # 按列取
     print df
     print df[["A", "C"]]
