@@ -34,34 +34,37 @@ if False:
 
 
 def rolling_window(a, window):
-    print a.shape, a.strides
+    # print a.shape, a.strides
     shape = a.shape[:-1] + (a.shape[-1] - window + 1, window)
     strides = a.strides + (a.strides[-1],)
-    print shape, strides
+    # print shape, strides
     return np.lib.stride_tricks.as_strided(a, shape=shape, strides=strides)
 
 
 if True:
     # 数据类型一样
-    d = np.arange(n)
-    d = np.array([np.arange(n), np.arange(n), np.arange(n), np.arange(n), np.arange(n), np.arange(n), ])
+    d = np.arange(7)
+    # d = np.array([np.arange(n), np.arange(n), np.arange(n), np.arange(n), np.arange(n), np.arange(n), ])
     # d = np.array(
     #     [[np.arange(n), np.arange(n)],
     #      [np.arange(n), np.arange(n)]]
     # )
     print(d)
-    # 维度
-    print(d.ndim)
-    # 数据类型
-    print(d.dtype)
-    # 不同维度大小
-    print(d.shape)
-    # 数据个数
-    print(d.size)
+    # # 维度
+    # print(d.ndim)
+    # # 数据类型
+    # print(d.dtype)
+    # # 不同维度大小
+    # print(d.shape)
+    # # 数据个数
+    # print(d.size)
     # strides指每个轴的下标增加1时数据存储区中的指针所增加的字节数
-    print(d.strides)
-    print (np.lib.stride_tricks.as_strided(d, strides=(8, 8)))
-    print(rolling_window(d, 2))
+    # print(d.strides)
+    # print (np.lib.stride_tricks.as_strided(d, strides=(8, 8)))
+    print(np.max(rolling_window(d, 3), 1))
+    print(np.min(rolling_window(d, 3), 1))
+    print(np.min(rolling_window(d, 3)))
+    print(rolling_window(d, 3))
 
 
 def n2(n):
