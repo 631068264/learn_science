@@ -6,7 +6,7 @@
 @annotation = ''
 """
 import numpy as np
-from sklearn import datasets, linear_model
+from sklearn import datasets
 
 iris = datasets.load_iris()
 iris_X = iris.data
@@ -15,7 +15,7 @@ iris_y = iris.target
 # 随机排列，随机分割数据
 # np.random.seed(0)
 indices = np.random.permutation(len(iris_X))
-
+# train_test_split()
 iris_X_train = iris_X[indices[:-10]]
 iris_y_train = iris_y[indices[:-10]]
 iris_X_test = iris_X[indices[-10:]]
@@ -40,9 +40,9 @@ fit 拟合x,y的train
 """
 knn.fit(iris_X_train, iris_y_train)
 print(knn.predict(iris_X_test))
+print(knn.score(iris_X, iris_y))
+print(knn.score(iris_X_test, iris_y_test))
 
-print(iris_y_test)
 
-
-logistic = linear_model.LogisticRegression(C=1e5)
-logistic.fit(iris_X_train, iris_y_train)
+# logistic = linear_model.LogisticRegression(C=1e5)
+# logistic.fit(iris_X_train, iris_y_train)

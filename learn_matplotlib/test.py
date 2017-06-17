@@ -5,11 +5,18 @@
 @time = 2017/1/31 11:28
 @annotation = '' 
 """
-# from pylab import mpl
-# # print mpl.rcParams
-# # mpl.rcParams['font.sans-serif'] = u'SimHei'  # 指定默认字体
-# # mpl.rcParams['font.family'] = u'SimHei'  # 指定默认字体
-# # mpl.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
+from matplotlib import rcParams
+
+rcParams['font.family'] = u'sans-serif'
+rcParams['font.sans-serif'] = [u'Microsoft Yahei',
+                               u'Heiti SC',
+                               u'Heiti TC',
+                               u'STHeiti',
+                               u'WenQuanYi Zen Hei',
+                               u'WenQuanYi Micro Hei',
+                               u"文泉驿微米黑",
+                               u'SimHei', ] + rcParams[u'font.sans-serif']
+rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
 
 import matplotlib.pyplot as plt
 from numpy.random import randn
@@ -38,10 +45,10 @@ ax3.set_xlabel(u"x")
 plt.savefig("figure.png", bbox_inches="tight")
 
 # 流
-from io import StringIO
-
-buffer = StringIO()
-plt.savefig(buffer)
-plot_data = buffer.getvalue()
+# from io import StringIO
+#
+# buffer = StringIO()
+# plt.savefig(buffer)
+# plot_data = buffer.getvalue()
 
 plt.show()
