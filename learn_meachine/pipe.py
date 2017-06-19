@@ -9,8 +9,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import linear_model, decomposition, datasets
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
+from sklearn.multiclass import OneVsRestClassifier
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import Imputer
 
 logistic = linear_model.LogisticRegression()
 
@@ -54,3 +58,48 @@ if True:
                 linestyle=':', label='n_components chosen')
     plt.legend(prop=dict(size=12))
     plt.show()
+
+if False:
+    from sklearn.preprocessing import FunctionTransformer
+
+    from sklearn.pipeline import FeatureUnion
+
+    """
+    Turns a Python function into an object that a scikit-learn pipeline can understand
+    """
+    get_text_data = FunctionTransformer(lambda x: x['text'],
+                                        validate=False)
+    get_numeric_data = FunctionTransformer(lambda x: x[['numeric',
+                                                        'with_missing']], validate=False)
+    from sklearn.pipeline import FeatureUnion
+
+    # numeric_pipeline = Pipeline([
+    #     ('selector', get_numeric_data),
+    #     ('imputer', Imputer())
+    # ])
+    # text_pipeline = Pipeline([
+    #     ('selector', get_text_data),
+    #     ('vectorizer', CountVectorizer())
+    # ])
+    # pl = Pipeline([
+    #     ('union', FeatureUnion([
+    #         ('numeric', numeric_pipeline),
+    #         ('text', text_pipeline)
+    #     ])),
+    #     ('clf', OneVsRestClassifier(LogisticRegression()))
+    # ])
+
+    pl = Pipeline([
+        ('union', FeatureUnion([
+            ('numeric_features', Pipeline([
+                ('selector', get_numeric_data),
+                ('imputer', Imputer())
+            ])),
+            ('text_features', Pipeline([
+                ('selector', get_text_data),
+                ('vectorizer', CountVectorizer())
+            ]))
+        ])
+         ),
+        ('clf', OneVsRestClassifier(LogisticRegression()))
+    ])
