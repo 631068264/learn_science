@@ -39,17 +39,17 @@ if False:
         scores.append(svc.fit(X_train, y_train).score(X_test, y_test))
     print(scores)
 
-if False:
+if True:
     """Cross-validation generators"""
 
     X = ["a", "a", "b", "c", "c", "c"]
-    k_fold = KFold(n_splits=3)
+    k_fold = KFold(n_splits=5)
     for train_indices, test_indices in k_fold.split(X):
         print('Train: %s | test: %s' % (train_indices, test_indices))
     """test score"""
     print(cross_val_score(svc, X_digits, y_digits, cv=k_fold, n_jobs=-1))
 
-if True:
+if False:
     """grid"""
 
     Cs = np.logspace(-6, -1, 10)

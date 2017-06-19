@@ -40,8 +40,8 @@ if False:
     # between X and y.
     # 可解释变异（英语：explained variation）在统计学中是指给定数据中的变异能被数学模型所解释的部分。通常会用方差来量化变异，故又称为可解释方差（explained variance）。
     # 除可解解变异外，总变异的剩余部分被称为未解释变异（unexplained variation）或残差（residual）
-    print
-    regr.score(diabetes_X_test, diabetes_y_test)
+    print(regr.score(diabetes_X_test, diabetes_y_test))
+
 
     # regr.fit(np.array([1, 2, 4], dtype="float64"), np.array([8], dtype="float64"))
     # print regr.coef_
@@ -60,9 +60,13 @@ if True:
     import matplotlib.pyplot as plt
 
     regr = linear_model.LinearRegression()
+    # 正则化
     # 高维统计学习一种解决方案是收缩回归系数为零：观察中的任何两个随机选择的组可能是不相关的。这被称为Ridge 回归
     # 偏差/方差折衷的一个例子：脊 alpha参数越大，偏差越高，方差越小
-    regr = linear_model.Ridge(alpha=.1)
+    # regr = linear_model.Ridge(alpha=.1, normalize=True)
+
+    # 缩小对系数影响 选择系数
+    regr = linear_model.Lasso(alpha=.001, normalize=True)
     plt.figure()
     np.random.seed(0)
     for _ in range(6):
@@ -76,7 +80,7 @@ if True:
     print([regr.set_params(alpha=alpha
                            ).fit(diabetes_X_train, diabetes_y_train,
                                  ).score(diabetes_X_test, diabetes_y_test) for alpha in alphas])
-
+    plt.show()
 # 高效离散
 # Different algorithms can be used to solve the same mathematical problem. For instance the Lasso object in scikit-learn
 # solves the lasso regression problem using a coordinate decent method, that is efficient on large datasets.
