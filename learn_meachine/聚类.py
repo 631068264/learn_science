@@ -18,31 +18,34 @@ if False:
     # 大概分成3类
     k_means = cluster.KMeans(n_clusters=3)
     k_means.fit(X_iris)
+    """
+    k-means a!empts to minimize the inertia when choosing clusters
+    More clusters means lower inertia,but not too many clusters where inertia begins to decrease more slowly
+    """
+    print k_means.inertia_
+    print k_means.fit_predict(X_iris)[::10]
     print(k_means.labels_[::10])
 
     print(y_iris[::10])
 
 if False:
+    """
+    Feature standardization improves clustering
+    """
+    from sklearn.preprocessing import StandardScaler
 
-    try:
-        face = sp.face(gray=True)
-    except AttributeError:
-        from scipy import misc
+    from sklearn.cluster import KMeans
 
-        face = misc.face(gray=True)
+    X = X_iris
+    scaler = StandardScaler()
+    kmeans = KMeans(n_clusters=3)
+    from sklearn.pipeline import make_pipeline
 
-    X = face.reshape((-1, 1))  # We need an (n_sample, n_feature) array
-    k_means = cluster.KMeans(n_clusters=5, n_init=1)
-    k_means.fit(X)
-
-    values = k_means.cluster_centers_.squeeze()
-    labels = k_means.labels_
-    print(values)
-    print(labels)
-    print(X.shape)
-    face_compressed = np.choose(labels, values)
-    face_compressed.shape = face.shape
-    print(face_compressed)
+    pipeline = make_pipeline(scaler, kmeans)
+    pipeline.fit(X)
+    labels = pipeline.predict(X)
+    print labels[::10]
+    # print(y_iris[::10])
 
 if False:
     """Hierarchical agglomerative clustering"""
@@ -90,7 +93,7 @@ if False:
     print(X_approx.shape)
     images_approx = np.reshape(X_approx, images.shape)
 
-if False:
+if True:
     """成分分析"""
 
     """
@@ -110,12 +113,17 @@ if False:
     pca.fit(X)
     # PCA查找数据不平坦的方向
     # 用于变换数据时，PCA可以通过在主子空间上投影来降低数据的维数
+
+    """Intrinsic dimension is number of PCA features with significant variance"""
     print(pca.explained_variance_)
+    print pca.n_components_
 
     # As we can see, only the 2 first components are useful
-    pca.n_components = 2
+    # pca.n_components = 2
     X_reduced = pca.fit_transform(X)
+    print X.shape
     print(X_reduced.shape)
+    print X_reduced
 
     time = np.linspace(0, 10, 2000)
     s1 = np.sin(2 * time)  # Signal 1 : sinusoidal signal
