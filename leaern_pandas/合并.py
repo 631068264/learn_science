@@ -23,14 +23,15 @@ if False:
     print subway_df
     print weather_df
 
-if False:
+if True:
     """
     merge 和 SQL join 差不多
     on 名称不一致用left_on, right
     """
-    print subway_df.merge(weather_df, left_on=["account_key", "date"], right_on=["account_key", "date_n"], how="inner")
+    # print subway_df.merge(weather_df, left_on=["account_key", "date"], right_on=["account_key", "date_n"], how="inner")
+    print subway_df.merge(weather_df,  how="outer")
 
-    print subway_df.merge(weather_df, on="account_key", how="left")
+    # print subway_df.merge(weather_df, on="account_key", how="left")
 
     # print subway_df.merge(weather_df, on="account_key", how="left", right_index=True)
 
@@ -38,7 +39,7 @@ s1 = pd.Series([0, 1], index=list("ab"))
 s2 = pd.Series([2, 3, 4], index=list("cde"))
 s3 = pd.Series([5, 6], index=list("fg"))
 
-if True:
+if False:
     s = pd.concat([s1, s2, s3])
     print s
     print s3[1]
