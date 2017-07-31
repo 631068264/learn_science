@@ -68,4 +68,9 @@ if False:
     print a.sum(axis=0)
     print a.sum(axis=1)
 if True:
+    # 列
     print a[:, 0]
+    print a[:, -1]
+    # 行
+    print a[0, :]
+    print a[-1, :]
