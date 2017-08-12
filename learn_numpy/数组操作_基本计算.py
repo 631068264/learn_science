@@ -112,7 +112,7 @@ a = np.array([
     [4, 4, 4, 4],
 ])
 
-if True:
+if False:
     # 按需取行a
     print a[[3, 2]]
     print a[[-1, -4]]
@@ -219,3 +219,19 @@ if False:
 
 
     print(np.linspace(0, 500, 5))
+
+if False:
+    a = np.array([
+        [1, 2, 3, 4],
+        [2, 2, 2, 2],
+        [3, 3, 3, 3],
+        [4, 4, 4, 4],
+    ])
+    print a[:2].sum(axis=0)
+    print a[2:].sum(axis=0)
+
+a = np.array([5, 1, 1, 5, 2, 5, 1, 5, 1, 2, 5, 5])
+a[np.where(a == 5)] = 0
+a[np.where(a == 1)] = -1
+
+print a

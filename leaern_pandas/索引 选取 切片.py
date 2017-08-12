@@ -136,6 +136,7 @@ if True:
     # print df[0]
     print df[0:2]
     print df.iloc[2:]
+    a = df.iloc[-2:].values
     print df.iloc[-1]
     print df.iloc[2] == df.loc["c"]
     '''

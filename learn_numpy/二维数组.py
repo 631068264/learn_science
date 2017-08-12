@@ -39,10 +39,14 @@ if False:
     print ridership[:, 1]
 
 # Vectorized operations on entire arrays
-if False:
+if True:
     a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
     b = np.array([[1, 1, 1], [2, 2, 2], [3, 3, 3]])
     print a + b
+
+    a = np.array([1, 2, 3])
+    b = np.array([1, 1, 1])
+    print a > b
 
 
 def mean_riders_for_max_station(ridership):
@@ -67,10 +71,12 @@ if False:
     print a.sum()
     print a.sum(axis=0)
     print a.sum(axis=1)
-if True:
+if False:
     # 列
     print a[:, 0]
     print a[:, -1]
     # 行
     print a[0, :]
     print a[-1, :]
+
+    print a[-1, 1]
