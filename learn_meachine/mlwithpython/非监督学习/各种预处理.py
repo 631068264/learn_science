@@ -26,9 +26,20 @@ from sklearn.model_selection import train_test_split
 cancer = load_breast_cancer()
 X_train, X_test, y_train, y_test = train_test_split(cancer.data, cancer.target,
                                                     random_state=1)
-print(X_train.shape)
-print(X_test.shape)
+# print(X_train.shape)
+# print(X_test.shape)
 
 from sklearn.preprocessing import MinMaxScaler
 
 scaler = MinMaxScaler()
+
+print X_train
+scaler.fit(X_train)
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# same result, but more efficient computation
+# X_scaled_d = scaler.fit_transform(X)
+
+print X_train_scaled
+
