@@ -133,7 +133,7 @@ if True:
     print df["A"] == df.A
 
     print '行 index'
-    # print df[0]
+    # print df[0] error
     print df[0:2]
     print df.iloc[2:]
     a = df.iloc[-2:].values
