@@ -37,6 +37,10 @@ print noise[:5]
 X_w_noise = np.hstack([cancer.data, noise])
 X_train, X_test, y_train, y_test = train_test_split(
     X_w_noise, cancer.target, random_state=0, test_size=.5)
+"""
+with the simplest ones being SelectKB est, which selects a fixed number k of features
+SelectPercentile, which selects a fixed percentage of features
+"""
 # use f_classif (the default) and SelectPercentile to select 50% of features
 select = SelectPercentile(percentile=50)
 select.fit(X_train, y_train)

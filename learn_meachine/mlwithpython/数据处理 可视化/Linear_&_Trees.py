@@ -53,7 +53,9 @@ plt.vlines(bins, -3, 3, linewidth=1, alpha=.2)
 plt.legend(loc="best")
 plt.ylabel("Regression output")
 plt.xlabel("Input feature")
-
+"""
+多项式
+"""
 # include polynomials up to x ** 10:
 # the default "include_bias=True" adds a feature that's constantly 1
 poly = PolynomialFeatures(degree=10, include_bias=False)
@@ -64,10 +66,10 @@ print("Polynomial feature names:\n{}".format(poly.get_feature_names()))
 print("Entries of X:\n{}".format(X[:5]))
 print("Entries of X_poly:\n{}".format(X_poly[:5]))
 
-
 from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
+
 boston = load_boston()
 X_train, X_test, y_train, y_test = train_test_split(boston.data, boston.target, random_state=0)
 # rescale data
@@ -80,7 +82,6 @@ X_train_poly = poly.transform(X_train_scaled)
 X_test_poly = poly.transform(X_test_scaled)
 print("X_train.shape: {}".format(X_train.shape))
 print("X_train_poly.shape: {}".format(X_train_poly.shape))
-
 
 """
 the interactions and polynomial features gave us a good boost
