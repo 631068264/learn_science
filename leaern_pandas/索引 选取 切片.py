@@ -109,7 +109,7 @@ if False:
     # 取 a c
     print s1[["a", "c"]]
 
-if True:
+if False:
     """
     选取
 
@@ -153,6 +153,12 @@ if True:
     print df[(df.A > 3) & (df.C > 0)]
     print df[df.A.isin([4, 8])]
     # print df[df.loc["c"] > 3]
-"""
-drop index
-"""
+if True:
+    df = pd.DataFrame(
+        np.arange(16).reshape(4, 4),
+        index=['f', 'u', 'c', 'k', ],
+        columns=['A', 'B', 'C', 'D', ]
+    )
+
+    print df
+    print df[(df.A > 5) & (df.B > df.B.mean())]

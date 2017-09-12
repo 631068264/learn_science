@@ -20,8 +20,14 @@ if False:
     both_below = (a < a.mean()) & (b < b.mean())
     print both_above
     print both_below
-if False:
+if True:
+    print a
     print a[a > 2]
     # false 选b
     print np.where(np.array([False, False, True, True]), a, b)
-    print np.where(a > 2, 100, 0)
+    print np.where(a < 4, 100, 0)
+    print np.where(np.logical_and(a > 1, a <= 2), 100, 0)
+    """& | ~ ^异或"""
+    print np.where((a > 1) | (a <= 2), 100, 0)
+    print np.where(~ (a > 1), 100, 0)
+    print a
