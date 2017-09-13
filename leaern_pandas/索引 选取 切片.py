@@ -153,6 +153,7 @@ if False:
     print df[(df.A > 3) & (df.C > 0)]
     print df[df.A.isin([4, 8])]
     # print df[df.loc["c"] > 3]
+
 if True:
     df = pd.DataFrame(
         np.arange(16).reshape(4, 4),
@@ -160,5 +161,10 @@ if True:
         columns=['A', 'B', 'C', 'D', ]
     )
 
-    print df
-    print df[(df.A > 5) & (df.B > df.B.mean())]
+    # print df
+    b = df['A'].shift(1)
+    print b
+    print b.sum()
+    print b.cumsum()
+    print np.log(220 / 218) == 220 / 218 - 1.0
+    # print df[(df.A > 5) & (df.B > df.B.mean())]

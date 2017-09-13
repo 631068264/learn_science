@@ -27,7 +27,7 @@ if True:
     print np.where(np.array([False, False, True, True]), a, b)
     print np.where(a < 4, 100, 0)
     print np.where(np.logical_and(a > 1, a <= 2), 100, 0)
-    """& | ~ ^异或"""
+    """& | ~ ^或"""
     print np.where((a > 1) | (a <= 2), 100, 0)
     print np.where(~ (a > 1), 100, 0)
     print a
