@@ -162,9 +162,12 @@ if True:
     )
 
     # print df
-    b = df['A'].shift(1)
-    print b
-    print b.sum()
-    print b.cumsum()
-    print np.log(220 / 218) == 220 / 218 - 1.0
+    # b = df['A'].shift(1)
+    # print b
+    # print b.sum()
+    # print b.cumsum()
+    # print np.log(220 / 218) == 220 / 218 - 1.0
     # print df[(df.A > 5) & (df.B > df.B.mean())]
+    print df
+    print df[:-1]
+    print df[:-1].append(df)
