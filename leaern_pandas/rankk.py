@@ -13,5 +13,5 @@ df = pd.DataFrame({
     'c': [5, 1, 15]
 })
 
-
+print df
 print df.rank(axis=1)

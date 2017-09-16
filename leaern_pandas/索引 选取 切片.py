@@ -168,6 +168,10 @@ if True:
     # print b.cumsum()
     # print np.log(220 / 218) == 220 / 218 - 1.0
     # print df[(df.A > 5) & (df.B > df.B.mean())]
-    print df
-    print df[:-1]
-    print df[:-1].append(df)
+    # print df
+    # print df[:-1]
+    # print df[:-1].append(df)
+    a = df.A[::-1].rank()
+    print a
+    print a.shape
+    print a / a.shape[0]
