@@ -44,7 +44,7 @@ df = pd.DataFrame({
     "data1": [1] * 5,
     "data2": [2] * 5,
 })
-if False:
+if True:
     """
     groupby 选取
     """

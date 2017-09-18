@@ -229,9 +229,35 @@ if False:
     ])
     print a[:2].sum(axis=0)
     print a[2:].sum(axis=0)
+if False:
+    a = np.array([5, 1, 1, 5, 2, 5, 1, 5, 1, 2, 5, 5])
+    a[np.where(a == 5)] = 0
+    a[np.where(a == 1)] = -1
+    print a
+    print a[0]
 
-a = np.array([5, 1, 1, 5, 2, 5, 1, 5, 1, 2, 5, 5])
-a[np.where(a == 5)] = 0
-a[np.where(a == 1)] = -1
+    print a.reshape(1, -1)
 
-print a
+if False:
+    a = np.array([
+        [1, 2, 3, 4],
+        [2, 2, 2, 2],
+        [3, 3, 3, 3],
+        [4, 4, 4, 4],
+    ])
+
+    print a[0].reshape(1, -1)
+    print a[1:]
+
+if True:
+    a = np.array([
+        [1, 2, 3, 4],
+        [2, 2, 2, 2],
+        [3, 3, 3, 3],
+        [4, 4, 4, 4],
+    ])
+    y = a[:, 0]
+    x = a[:, 1:]
+    print y
+    print x
+    print a.reshape(1, -1)

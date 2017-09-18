@@ -154,24 +154,51 @@ if False:
     print df[df.A.isin([4, 8])]
     # print df[df.loc["c"] > 3]
 
-if True:
+if False:
     df = pd.DataFrame(
         np.arange(16).reshape(4, 4),
         index=['f', 'u', 'c', 'k', ],
         columns=['A', 'B', 'C', 'D', ]
     )
 
-    # print df
-    # b = df['A'].shift(1)
-    # print b
-    # print b.sum()
-    # print b.cumsum()
-    # print np.log(220 / 218) == 220 / 218 - 1.0
-    # print df[(df.A > 5) & (df.B > df.B.mean())]
-    # print df
-    # print df[:-1]
-    # print df[:-1].append(df)
+    print df
+    b = df['A'].shift(1)
+    print b
+    print b.sum()
+    print b.cumsum()
+    print np.log(220 / 218) == 220 / 218 - 1.0
+    print df[(df.A > 5) & (df.B > df.B.mean())]
+    print df
+    print df[:-1]
+    print df[:-1].append(df)
+
     a = df.A[::-1].rank()
     print a
     print a.shape
     print a / a.shape[0]
+    print round(a / a.shape[0], 3)
+
+    print df.A.shift(1)
+
+if False:
+    index = pd.date_range('1/1/2000', periods=9, freq='T')
+    series = pd.Series(range(9), index=index)
+    print series
+    print
+    s = series.resample('3T').sum()
+    print s
+
+if True:
+    a = pd.DataFrame({
+        'key': ['K0', 'K1', 'K2'],
+        'B': ['B0', 'B1', 'B2']
+    })
+    b = pd.DataFrame({
+        'A': ['B0', 'B1', 'B2']
+    })
+
+    # c = a.join(b)
+    # print c
+
+    print a.columns.tolist().count('A')
+    print 'A' in a.columns.tolist()
