@@ -137,5 +137,5 @@ if True:
     print("Best cross-validation score: {:.2f}".format(grid_search.best_score_))
     print("Best estimator:\n{}".format(grid_search.best_estimator_))
     """a dictionary storing all aspects of the search"""
-    # results = pd.DataFrame(grid_search.cv_results_)
-    # print results.head()
+    results = pd.DataFrame(grid_search.cv_results_)
+    print results.head()
