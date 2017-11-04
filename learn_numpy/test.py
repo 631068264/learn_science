@@ -37,17 +37,13 @@ import numpy as np
 # print c
 #
 # print np.column_stack((a, b))
+from sklearn.model_selection import KFold
 
-a = np.array((1, 2, 3))
-print a
-b = np.array((2, 3, 4))
-print np.column_stack((a, b))
+pos_thresholds = np.linspace(0.50, 0.99, num=50)
+print pos_thresholds
+print len(pos_thresholds)
 
-test_data = [[], []]
-# print len(test_data[0])
-stats = {'r': 0, 'w': 0, 'p': {0: 0, 1: 0, -1: 0}, 'a': {0: 0, 1: 0, -1: 0}}
-
-pct_correct = (1.0 * stats['r'] / (stats['r'] + stats['w']))
-print pct_correct
-for i in range(0, len(test_data[0])):
-    print i
+k_fold = KFold(n_splits=2)
+for k in k_fold.split(pos_thresholds):
+    print k[0]
+    print k[1]

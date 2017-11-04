@@ -39,7 +39,7 @@ if False:
     print ridership[:, 1]
 
 # Vectorized operations on entire arrays
-if True:
+if False:
     a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
     b = np.array([[1, 1, 1], [2, 2, 2], [3, 3, 3]])
     print a + b
@@ -80,3 +80,13 @@ if False:
     print a[-1, :]
 
     print a[-1, 1]
+
+    print a[0,1]
+
+    print a[0]
+    print a[0][1]
+
+if True:
+    print np.mean(a[0])
+    print a[2]
+    print np.square(a)
