@@ -7,14 +7,14 @@
 """
 import pandas as pd
 
-if False:
+if True:
     """
-    one-hot encoding
+    one-hot encoding 适合对付字符串特征
     """
     df = pd.DataFrame({
         'A': ['a', 'b', 'a'],
         'B': ['b', 'a', 'c'],
-        'C': [1, 2, 3],
+        'C': ['e', 'd', 'f'],
     })
 
     """
@@ -33,7 +33,7 @@ if False:
     print dummy.columns
     print dummy.values
 
-if True:
+if False:
     """
     数字编码
     """

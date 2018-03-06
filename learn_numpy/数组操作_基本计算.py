@@ -249,7 +249,7 @@ if False:
     print a[0].reshape(1, -1)
     print a[1:]
 
-if False:
+if True:
     a = np.array([
         [1, 2, 3, 4],
         [2, 2, 2, 2],
@@ -261,8 +261,8 @@ if False:
     print y
     print x
     print a.reshape(1, -1)
-
-if True:
+    print(a[1,3])
+if False:
     a = np.array([1, 2, 3, 4])
     print a[:-2]
     print a[-2:]

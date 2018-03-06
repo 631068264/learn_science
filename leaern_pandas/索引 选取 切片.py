@@ -188,7 +188,7 @@ if False:
     s = series.resample('3T').sum()
     print s
 
-if True:
+if False:
     a = pd.DataFrame({
         'key': ['K0', 'K1', 'K2'],
         'B': ['B0', 'B1', 'B2']
@@ -202,3 +202,18 @@ if True:
 
     print a.columns.tolist().count('A')
     print 'A' in a.columns.tolist()
+
+df = pd.DataFrame(
+    np.arange(16).reshape(4, 4),
+    index=['f', 'u', 'c', 'k', ],
+    columns=['A', 'B', 'C', 'D', ]
+)
+print(df)
+# print(df.values)
+# print(df.values.reshape(-1, 1))
+#
+# a = np.array(df)[:None:]
+# b = np.array(df)
+# print(a)
+# print(b)
+# print(a==b)

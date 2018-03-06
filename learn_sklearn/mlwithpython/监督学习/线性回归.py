@@ -18,9 +18,20 @@ print X_train.shape
 print X_test.shape
 
 """
-减少系数对outcome影响 贴近0 解决过拟合 
-正则化Regularization Regularization means explicitly restricting a model to avoid overfitting.
+减少系数对outcome影响 贴近0 解决过拟合
+
+过拟合 : 早停法 加入对模型复杂度惩罚
+
+正则化 Regularization
+    Regularization means explicitly restricting a model to avoid overfitting.
+L2 = W1^2 + W2^2+ ...+Wn^2
 The particular kind used by ridge regression is known as L2 regularization
+执行 L2 正则化对模型具有以下影响
+    使权重值接近于 0（但并非正好为 0）
+    使权重的平均值接近于 0，且呈正态（钟形曲线或高斯曲线）分布
+
+
+
 
 Increasing alpha forces coefficients to move more toward zero, 
 which decreases training set performance but might help generalization.

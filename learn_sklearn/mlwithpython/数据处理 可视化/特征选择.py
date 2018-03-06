@@ -17,6 +17,7 @@ There are three basic strategies:
     univariate statistics,
     model-based selection, 
     iterative selection
+特征值多次出现，有明确含义，排除不该存在的值
 They need the target for fitting the model. 
 This means we need to split the data into training and test sets, and fit the feature selection only on the training part of the data
 """
