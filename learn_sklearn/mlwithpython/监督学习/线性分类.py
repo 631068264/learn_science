@@ -12,7 +12,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 
 """
-Note that both misclas‐ sify two of the points. 
+Note that both misclassify two of the points. 
 By default, both models apply an L2 regularization, in the same way that Ridge does for regression.
 
 the strength of the regularization is called C, and higher values of C correspond to less regularization.

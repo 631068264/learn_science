@@ -29,9 +29,12 @@ The particular kind used by ridge regression is known as L2 regularization
 执行 L2 正则化对模型具有以下影响
     使权重值接近于 0（但并非正好为 0）
     使权重的平均值接近于 0，且呈正态（钟形曲线或高斯曲线）分布
+    
+L1 高维度稀疏矢量中（特征组合）,最好尽可能使权重正好降至 0
 
-
-
+L2 和 L1 采用不同的方式降低权重：
+L2 会降低权重2。
+L1 会降低 |权重|。
 
 Increasing alpha forces coefficients to move more toward zero, 
 which decreases training set performance but might help generalization.
@@ -44,7 +47,7 @@ When we do this, we also need to increase the default
 setting of max_iter (the maximum number of iterations to run)
 
 The Ridge model with alpha=0.1 has similar predictive performance as the lasso model with alpha=0.01, 
-but using Ridge, all coef‐ ficients are nonzero
+but using Ridge, all coefficients are nonzero
 
 
 scikit-learn also provides the ElasticNet class, which combines the penalties of Lasso and Ridge. In practice, 

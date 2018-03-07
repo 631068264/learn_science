@@ -12,7 +12,7 @@ when classes are imbalanced, accuracy is not a great evaluation measure.
 """
 from sklearn.datasets import load_digits
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix, f1_score, classification_report, roc_auc_score
+from sklearn.metrics import confusion_matrix, f1_score, classification_report
 
 from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 
@@ -26,16 +26,29 @@ if False:
     pred_logreg = logreg.predict(X_test)
     print("logreg score: {:.2f}".format(logreg.score(X_test, y_test)))
 """
+TF -->预测结果方向与真实结果方向 相同为T
+PN 定义正负类别
+PN--> 预测结果的类别
+
 TN negative true 
     真假阴阳性
     TN FP
     FN TP
+    
+预测正确的结果所占的比例
 Accuracy = (TP+TN) /(TP+TN+FP+FN)
-Precision measures how many of the samples predicted as positive are actually positive 
-Precision is used as a performance metric when the goal is to limit the number of false positives
-    Precision = TP /(TP+FP)
-Recall avoid false negatives
-    Recall = TP /(TP+FN)
+
+精准率 = 被正确识别为正类别次数/(预测为正例)
+Precision = TP /(TP+FP)
+
+召回率 = 被正确识别为正列次数/(真实正例)
+Recall = TP /(TP+FN)
+
+分类阈值的调整 使得精确率和召回率往往是此消彼长
+分类阈值    FP      FN
++          -       +
+-          +       -
+
 while precision and recall are very important measures
     f-score = 2PR /(R+P)
 
@@ -83,12 +96,26 @@ plt.plot(precision_rf[close_default_rf], recall_rf[close_default_rf], '^', c='k'
 Receiver operating characteristics (ROC)
 
 instead of reporting precision and recall, it shows the false positive rate (FPR) against the true positive rate (TPR).
+ROC 曲线（接收者操作特征曲线）是一种显示分类模型在所有分类阈值下的效果的图表
+FPR（x轴） = FP/(FP+TN)
+TPR = TP/(TP+FN)
 
-FPR = FP/(FP+TN)
+在不同的阈值下TPR，FPR
 
 you want a classifier that produces a high recall ->  low FPR
 
 
+
+预测偏差 = avg(predict) - avg(对应标签)
+造成预测偏差的可能原因包括：
+    特征集不完整
+    数据集混乱
+    模型实现流水线中有错误？
+    训练样本有偏差
+    正则化过强
+
+
+ 
 """
 from sklearn.metrics import roc_curve
 
