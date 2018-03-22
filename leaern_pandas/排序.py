@@ -17,7 +17,7 @@ if False:
 df = pd.DataFrame(
     [
         [9, 6, 2, 3],
-        [9, 8, 2, 3],
+        [10, 8, 2, 3],
         [5, 1, 3, 10],
         [5, 1, 3, 10],
     ],
@@ -29,3 +29,4 @@ if True:
     # 根据列排序决定决定行位置
     print df.sort_values(by=["A", "B"])
     print df.sort_index()
+    print(df['A'].argmax())

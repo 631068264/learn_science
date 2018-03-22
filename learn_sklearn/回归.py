@@ -66,7 +66,7 @@ if True:
     # regr = linear_model.Ridge(alpha=.1, normalize=True)
 
     # 缩小对系数影响 选择系数
-    regr = linear_model.Lasso(alpha=.001, normalize=True)
+    # regr = linear_model.Lasso(alpha=.001, normalize=True)
     plt.figure()
     np.random.seed(0)
     for _ in range(6):

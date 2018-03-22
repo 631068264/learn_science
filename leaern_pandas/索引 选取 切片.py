@@ -109,7 +109,7 @@ if False:
     # 取 a c
     print s1[["a", "c"]]
 
-if False:
+if True:
     """
     选取
 
@@ -148,7 +148,9 @@ if False:
     print df.ix["k", "A"]
     print df.ix[["f", "k"],]
     print df.ix["f":"k", "A"]
-
+    print(df.ix[0, :])
+    # assert df.ix[0:4, 'A'] == df.ix["f":"k", "A"]
+    print(df.ix[0:4, 'A'])
     print "逻辑"
     print df[(df.A > 3) & (df.C > 0)]
     print df[df.A.isin([4, 8])]
