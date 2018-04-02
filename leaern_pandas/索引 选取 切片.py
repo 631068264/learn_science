@@ -109,7 +109,7 @@ if False:
     # 取 a c
     print s1[["a", "c"]]
 
-if True:
+if False:
     """
     选取
 
@@ -156,7 +156,7 @@ if True:
     print df[df.A.isin([4, 8])]
     # print df[df.loc["c"] > 3]
 
-if False:
+if True:
     df = pd.DataFrame(
         np.arange(16).reshape(4, 4),
         index=['f', 'u', 'c', 'k', ],
@@ -164,6 +164,7 @@ if False:
     )
 
     print df
+    print(df['A'].pct_change())
     b = df['A'].shift(1)
     print b
     print b.sum()
