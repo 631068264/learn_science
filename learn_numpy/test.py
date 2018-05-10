@@ -37,13 +37,20 @@ import numpy as np
 # print c
 #
 # print np.column_stack((a, b))
-from sklearn.model_selection import KFold
 
-pos_thresholds = np.linspace(0.50, 0.99, num=50)
-print pos_thresholds
-print len(pos_thresholds)
+# pos_thresholds = np.linspace(0.50, 0.99, num=50)
+# print pos_thresholds
+# print len(pos_thresholds)
+#
+# k_fold = KFold(n_splits=2)
+# for k in k_fold.split(pos_thresholds):
+#     print k[0]
+#     print k[1]
 
-k_fold = KFold(n_splits=2)
-for k in k_fold.split(pos_thresholds):
-    print k[0]
-    print k[1]
+noa = 5
+weights = np.random.random(noa)
+print(weights)
+a = np.sum(weights)
+weights /= a
+print(weights)
+print(np.sum(weights))

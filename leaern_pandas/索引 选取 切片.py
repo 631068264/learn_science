@@ -109,7 +109,7 @@ if False:
     # 取 a c
     print s1[["a", "c"]]
 
-if False:
+if True:
     """
     选取
 
@@ -145,6 +145,7 @@ if False:
     df.loc[:,'open'] #选取 open 列的数据
     '''
     print '区域索引'
+    print(df.ix[0])
     print df.ix["k", "A"]
     print df.ix[["f", "k"],]
     print df.ix["f":"k", "A"]
