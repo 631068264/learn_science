@@ -7,7 +7,7 @@
 """
 import pandas as pd
 
-if True:
+if False:
     """
     one-hot encoding 适合对付字符串特征
     """
@@ -33,7 +33,7 @@ if True:
     print dummy.columns
     print dummy.values
 
-if False:
+if True:
     """
     数字编码
     """
