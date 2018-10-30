@@ -2,7 +2,7 @@ appnope==0.1.0
 backports-abc==0.5
 backports.shutil-get-terminal-size==1.0.0
 backports.weakref==1.0.post1
-bleach==1.5.0
+bleach==3.0.2
 certifi==2017.7.27.1
 configparser==3.5.0
 cycler==0.10.0
@@ -16,7 +16,7 @@ funcsigs==1.0.2
 functools32==3.2.3.post2
 future==0.16.0
 futures==3.1.1
-html5lib==0.9999999
+html5lib==1.0.1
 ipykernel==4.6.1
 ipython==5.0.0
 ipython-genutils==0.2.0
@@ -33,7 +33,7 @@ Markdown==2.6.9
 MarkupSafe==1.0
 matplotlib==2.0.2
 mglearn==0.1.6
-mistune==0.7.4
+mistune==0.8.4
 mock==2.0.0
 nbconvert==5.3.1
 nbformat==4.4.0
@@ -70,7 +70,7 @@ simplegeneric==0.8.1
 singledispatch==3.4.0.3
 six==1.11.0
 subprocess32==3.2.7
-tensorflow==1.4.0
+tensorflow==1.11.0
 tensorflow-tensorboard==0.4.0rc2
 terminado==0.8.1
 testpath==0.3.1
